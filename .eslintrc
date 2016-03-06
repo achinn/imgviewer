@@ -49,7 +49,7 @@
     "no-caller": 2,
     "no-class-assign": 2,
     "no-cond-assign": [2, "always"],
-    "no-console": 1,
+    "no-console": 0,
     "no-const-assign": 2,
     "no-constant-condition": 1,
     "no-debugger": 1,
