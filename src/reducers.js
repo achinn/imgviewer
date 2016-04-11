@@ -4,13 +4,29 @@ import {
 	SET_ACCESS_KEY_ID,
 	SET_SECRET_ACCESS_KEY,
 	SET_BUCKET_NAME,
-	RECEIVE_OBJECTS
+	RECEIVE_OBJECTS,
+	SELECTED_FILE,
+	UNSELECT_FILE
 } from './actions';
 
 function selectedDir(state = '', action) {
 	switch (action.type) {
 	case SELECTED_DIR:
 		return action.dir;
+	default:
+		return state;
+	}
+}
+
+function selectedFile(state = null, action) {
+	switch (action.type) {
+	case SELECTED_FILE:
+		return {
+			file: action.file,
+			thumbnailUrl: action.thumbnailUrl
+		};
+	case UNSELECT_FILE:
+		return null;
 	default:
 		return state;
 	}
@@ -60,6 +76,10 @@ function objects(state = {}, action) {
 
 // {
 // 	selectedDir: '',
+//	selectedFile: {
+// 		file: '',
+// 		thumbnailUrl: ''
+//	},
 // 	accessKeyId: '',
 // 	secretAccessKey: '',
 // 	bucketName: '',
@@ -77,5 +97,6 @@ export default combineReducers({
 	accessKeyId,
 	secretAccessKey,
 	bucketName,
-	objects
+	objects,
+	selectedFile
 });

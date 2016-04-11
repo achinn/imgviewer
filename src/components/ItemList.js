@@ -4,7 +4,7 @@ import Item from './Item';
 const ItemList = ({ dirs, files, onClickedDir, onClickedFile }) => {
 	const fileComponents = files.map(file => {
 		return (
-			<Item key={file.Key} name={file.Key} onClick={() => onClickedFile(file.key)}/>
+			<Item key={file.file} name={file.file} onClick={() => onClickedFile(file.file)}/>
 		);
 	});
 
@@ -34,7 +34,10 @@ const ItemList = ({ dirs, files, onClickedDir, onClickedFile }) => {
 
 ItemList.propTypes = {
 	dirs: PropTypes.arrayOf(PropTypes.string).isRequired,
-	files: PropTypes.arrayOf(PropTypes.shape({ Key: PropTypes.string })).isRequired,
+	files: PropTypes.arrayOf(PropTypes.shape({
+		file: PropTypes.string.isRequired,
+		thumbnailUrl: PropTypes.string
+	})).isRequired,
 	onClickedDir: PropTypes.func.isRequired,
 	onClickedFile: PropTypes.func.isRequired
 };

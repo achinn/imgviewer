@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Credentials from '../components/Credentials';
-import ItemListContainer from './ItemListContainer';
+import Switcher from './Switcher';
 import { fetchObjects } from '../actions';
 import { connect } from 'react-redux';
 
@@ -22,7 +22,7 @@ class App extends Component {
 		return (
 			<div>
 				<Credentials/>
-				<ItemListContainer/>
+				<Switcher/>
 			</div>
 		);
 	}
